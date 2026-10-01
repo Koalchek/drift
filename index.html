@@ -519,4 +519,15 @@ function finish(){run=false;score+=Math.round(pend);pend=0;
 $('go').onclick=()=>{const cont=resume;resume=false;inBoat=false;Object.assign(bt,{x:-54.5,z:308,a:Math.PI/2});Object.assign(st,{x:-60,z:6,a:0,vx:0,vz:0,s:0,sp:0,h:8,vy:0});dead=0;gcd=0;GR.forEach(q=>{q.on=0;q.g.visible=false});pieces.forEach(p=>{p.l=0;p.m.visible=false});ca=0;if(!cont){score=0;time=90}pend=0;dT=0;gap=0;mult=1;run=true;
  cam.position.set(-75,6.5,6);$('menu').style.display='none';$('pop').style.opacity=0};
 requestAnimationFrame(loop);
+ const socket = new WebSocket(
+    "wss://https://drift-ql56.onrender.com"
+);
+
+socket.onopen = () => {
+    console.log("Connected to multiplayer");
+};
+
+socket.onclose = () => {
+    console.log("Disconnected");
+};
 </script></body></html>
