@@ -195,7 +195,6 @@ const nzU=new T.Group();
  [.7,-.7].forEach(z=>{const a=add(nzU,new T.CylinderGeometry(.15,.15,1.6,6),'#ffd9b8',.45,2.1,z);a.rotation.z=-.35;
   const b=add(nzU,new T.TorusGeometry(.35,.1,6,10,Math.PI*.9),'#ffe14d',.8,3,z);b.rotation.z=Math.PI*.55});
  g.position.set(194.5,.8,0);S.add(g)}
-lab('Назар',194.5,6.5,0,14);
 // Огромная хозяйка с половником
 island(0,120,8);bx(7,2,6,mat('#cfc6d8'),0,1.8,120,.3);
 {const g=new T.Group(),add=(geo,c,x,y,z,sx,sy,sz)=>{const m=new T.Mesh(geo,mat(c)),l=new T.Mesh(geo,OL);l.scale.setScalar(1.06);m.add(l);m.position.set(x,y,z);if(sx)m.scale.set(sx,sy,sz);g.add(m);return m};
@@ -217,7 +216,7 @@ function line(x,z,L,vert){const t=DT.clone();t.needsUpdate=true;t.repeat.set(L/6
 line(0,0,800);[-200,0,200].forEach(x=>line(x,-5,540,1));[-120,120].forEach(z=>line(0,z,800));
 [-100,120].forEach(x=>{const m=new T.Mesh(new T.PlaneGeometry(56,7),new T.MeshBasicMaterial({transparent:true,map:new T.CanvasTexture(cv(512,64,(c)=>{c.fillStyle='rgba(255,255,255,.75)';c.font='800 44px Rubik,sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText('бульвар Шевченка',256,34)}))}));m.rotation.x=-Math.PI/2;m.position.set(x,.09,6.5);S.add(m)});
 // деревья
-{const n=trees.length,cr=new T.InstancedMesh(new T.IcosahedronGeometry(2.3,0),mat('#3fae5a'),n),co=new T.InstancedMesh(new T.IcosahedronGeometry(2.3,0),OL,n),tr=new T.InstancedMesh(new T.CylinderGeometry(.35,.45,2,6),mat('#8a5a3a'),n),d=new T.Object3D();
+{const n=trees.length,cr=new T.InstancedMesh(new T.Icosconnect 62.112.222.40:27179ahedronGeometry(2.3,0),mat('#3fae5a'),n),co=new T.InstancedMesh(new T.IcosahedronGeometry(2.3,0),OL,n),tr=new T.InstancedMesh(new T.CylinderGeometry(.35,.45,2,6),mat('#8a5a3a'),n),d=new T.Object3D();
  trees.forEach((p,k)=>{circ.push({x:p[0],z:p[1],r:.9});d.scale.set(1,1,1);d.position.set(p[0],1.4,p[1]);d.updateMatrix();tr.setMatrixAt(k,d.matrix);
   d.position.y=3.8;d.updateMatrix();cr.setMatrixAt(k,d.matrix);d.scale.setScalar(1.12);d.updateMatrix();co.setMatrixAt(k,d.matrix)});
  S.add(cr,co,tr)}
